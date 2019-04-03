@@ -30,15 +30,16 @@ public partial class _Default : System.Web.UI.Page
                 Session["Usuario"] = obj.Usuario;
                 if (Session["Rol"].ToString().Equals("1"))
                 {
-                    Response.Write("<script language ='javascript'>document.location.href='dflPrincipalAdm.aspx';</script>");
+                    Response.Write("<script language ='javascript'>alert('Sesion iniciada\\nAdministrador');document.location.href='dflPrincipalAdm.aspx';</script>");
+
                 }
                 else if (Session["Rol"].ToString().Equals("2"))
                 {
-                    Response.Write("<script language ='javascript'>document.location.href='dflPrincipalEmp.aspx';</script>");
+                    Response.Write("<script language ='javascript'>alert('Sesion iniciada\\nEmpleado');document.location.href='dflPrincipalEmp.aspx';</script>");
                 }
                 else if (Session["Rol"].ToString().Equals("3"))
                 {
-                    Response.Write("<script language ='javascript'>document.location.href='dflPrincipal.aspx';</script>");
+                    Response.Write("<script language ='javascript'>alert('Sesion iniciada\\nCliente');document.location.href='dflPrincipal.aspx';</script>");
                 }
 
             }
