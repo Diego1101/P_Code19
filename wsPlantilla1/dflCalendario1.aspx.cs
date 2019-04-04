@@ -15,10 +15,11 @@ public partial class _Default : System.Web.UI.Page
     //variables para el manejo de la fotografía
     int claveProd;
     string ruta = "", foto = "";
+    int indice;
 
     void llenarGrid()
     {
-        //impia el data set 
+        //limpia el data set 
         ds = new DataSet();
         //ejecuta el método de la clase qu trae a los empleados
         ds = objDatos.listarUsuarios(Application["cnn"].ToString());
@@ -46,7 +47,8 @@ public partial class _Default : System.Web.UI.Page
 
     protected void gvUsuarios_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
     {
-
+        indice = int.Parse(gvUsuarios.Rows[e.NewSelectedIndex].Cells[1].Text.ToString());
+        Response.Write("<script language ='javascript'>document.location.href='dflMensaje.aspx?ID="+indice+ "';</script>");
     }
 
     protected void gvUsuarios_PageIndexChanging(object sender, GridViewPageEventArgs e)

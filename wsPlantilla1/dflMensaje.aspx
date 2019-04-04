@@ -11,6 +11,7 @@
             <div class="col-lg-10"">
                 <h2>Mensaje</h2>
                 <h3><asp:Label ID="txtNombre" runat="server" Text="Nombre"></asp:Label></h3>
+                <h3><asp:Label ID="txtTel" runat="server" Text="Teléfono"></asp:Label></h3>
 
             </div>
 
@@ -24,8 +25,8 @@
 
             <div class="col-lg-10"">         
             <br />
-                <asp:Button ID="btnSeleccionar" runat="server" Text="Seleccionar"  CssClass="primary-btn"/>
-                <asp:Button ID="btnEnviar" runat="server" Text="Enviar"  CssClass="primary-btn"/>
+                <asp:Button ID="btnSeleccionar" runat="server" Text="Seleccionar"  CssClass="primary-btn" OnClick="btnSeleccionar_Click"/>
+                <asp:Button ID="btnEnviar" runat="server" Text="Enviar"  CssClass="primary-btn" OnClick="btnEnviar_Click"/>
             </div>
 
             </div>
