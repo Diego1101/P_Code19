@@ -110,12 +110,19 @@ public class clsClase
 
     public DataSet listarTipo(string con)
     {
-
         da = new SqlDataAdapter("TSP_tipoProducto", con);
         ds = new DataSet();
         da.Fill(ds, "TIPO");
         return ds;
     }
 
+    public DataSet listarUsuarios(string con)
+    {
+        //con espacio antes de finalizar comillas para que no se junte la clave con el nombre y no de ningun problema
+        da = new SqlDataAdapter("TSP_ListarUsuario", con);
+        ds = new DataSet();
+        da.Fill(ds, "UsuariosRegistrados");
+        return ds;
+    }
 
 }
