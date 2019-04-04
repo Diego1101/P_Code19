@@ -18,7 +18,7 @@ public partial class _Default : System.Web.UI.Page
 
     void llenarGrid()
     {
-        //impia el data set 
+        //limpia el data set 
         ds = new DataSet();
         //ejecuta el método de la clase qu trae a los empleados
         ds = objDatos.listarUsuarios(Application["cnn"].ToString());
