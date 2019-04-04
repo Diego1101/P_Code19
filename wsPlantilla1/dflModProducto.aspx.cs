@@ -65,7 +65,7 @@ public partial class _Default : System.Web.UI.Page
 
 
     }
-
+    
     protected void btnCancelar_Click(object sender, EventArgs e)
     {
         Response.Write("<script language ='javascript'>document.location.href='dflProductos.aspx';</script>");
@@ -113,4 +113,30 @@ public partial class _Default : System.Web.UI.Page
             }
         }
     }
+
+    
+    protected void imgbImagen_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            if (fluFoto.HasFile)
+            {
+                string ruta = "", foto = "";
+                ruta = Server.MapPath("./img/");
+                fluFoto.PostedFile.SaveAs(ruta + fluFoto.FileName);
+                foto = fluFoto.FileName;
+                imgbImagen.ImageUrl = "./img/" + foto;
+                imgbImagen.ImageAlign = ImageAlign.Middle;
+                lblImagen.Text = "./img/" + foto;
+
+            }
+        }
+        catch
+        {
+
+            Response.Write("<script language='javascript'>alert('Error al subir la foto');</script>");
+        }
+    }
+    
+
 }

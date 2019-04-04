@@ -64,10 +64,10 @@
                 <asp:TextBox ID="txtDesc" runat="server" TextMode="MultiLine" placeHolder="Descripción" Style="resize: none; width: 100%; height: 230px"></asp:TextBox>
             </div>
             <div class="col-lg-5">
-                <asp:ImageButton Style="margin-left: 25%" ID="imgbImagen" runat="server" Height="200" Width="200" />
+                <asp:ImageButton Style="margin-left: 25%" ID="imgbImagen" runat="server" Height="200" Width="200" OnClick="imgbImagen_Click" />
             </div>
             <div class="col-lg-5">
-                <asp:FileUpload ID="FileUpload1" runat="server" />
+                <asp:FileUpload ID="fluFoto" runat="server" />
                 <asp:Label ID="lblImagen" runat="server" Text="" Visible="false"></asp:Label>
             </div>
         </div>

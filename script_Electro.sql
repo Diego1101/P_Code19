@@ -241,6 +241,7 @@ INSERT INTO TIPO_PRODUCTO (TPR_PRODUCTO) VALUES
 	('Smartphone'),
 	('Tablet')
 
+
 INSERT INTO PRODUCTO (PRO_CODIGO,PRO_TIPO, PRO_NOMBRE, PRO_MARCA, PRO_DESC, PRO_UNIDADES, PRO_COSTO, PRO_IMAGEN, PRO_BAJA, PRO_FECHA_REG) VALUES
 	(101, 1, 'Laptop HP', 'HP','4 GB RAM, 1 TB HDD, Windows 10', 10, 4000, './img/product01.png', 1, GETDATE()),
 	(102, 2, 'Headset Logitech', 'Logitech','Microfono, plug 3mm', 15, 700, './img/product02.png', 1, GETDATE()),
