@@ -64,6 +64,37 @@
                             %>
                         </div>
                     </div>
+
+                    <div class="row">
+                        <div class="products-tabs">
+                            <div class="tab-pane active">
+                                <div class="products-slick slick-initialized slick-slider" data-nav="#slick-nav-1">
+                                    <div class="product slick-slide" style="width: 263px;">
+                                        <div class="product-img">
+                                            <img src="../img/product05.png" alt="" />
+                                        </div>
+                                        <div class="product-body">
+                                            <p class="product-category">Category</p>
+                                            <h3 class="product-name"><a href="#" tabindex="0">product name goes here</a></h3>
+                                            <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+                                            <div class="product-rating">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </div>
+
+                                        </div>
+                                        <div class="add-to-cart">
+                                            <button class="add-to-cart-btn" tabindex="0"><i class="fa fa-shopping-cart"></i>add to cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br /><br />
                     <div class="row">
                         <div class="products-tabs">
 
@@ -91,11 +122,31 @@
                                                         <i class="fa fa-star"></i>
                                                         <i class="fa fa-star-o"></i>
                                                     </div>
-                                                    <div class="product-btns">
-                                                        <button class="add-to-wishlist" tabindex="-1"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                                                        <button class="add-to-compare" tabindex="-1"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                                                        <button class="quick-view" tabindex="-1"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+
+                                                </div>
+                                                <div class="add-to-cart">
+                                                    <button class="add-to-cart-btn" tabindex="-1"><i class="fa fa-shopping-cart"></i>add to cart</button>
+                                                </div>
+                                            </div>
+                                            <div class="product slick-slide slick-cloned" data-slick-index="-4" aria-hidden="true" tabindex="-1" style="width: 263px;">
+                                                <div class="product-img">
+                                                    <img src="../img/product02.png" alt="" />
+                                                    <div class="product-label">
+                                                        <span class="new">NEW</span>
                                                     </div>
+                                                </div>
+                                                <div class="product-body">
+                                                    <p class="product-category">Category</p>
+                                                    <h3 class="product-name"><a href="#" tabindex="-1">lhkjhlk</a></h3>
+                                                    <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+                                                    <div class="product-rating">
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star-o"></i>
+                                                    </div>
+
                                                 </div>
                                                 <div class="add-to-cart">
                                                     <button class="add-to-cart-btn" tabindex="-1"><i class="fa fa-shopping-cart"></i>add to cart</button>
@@ -164,11 +215,7 @@
                                                         <i class="fa fa-star"></i>
                                                         <i class="fa fa-star"></i>
                                                     </div>
-                                                    <div class="product-btns">
-                                                        <button class="add-to-wishlist" tabindex="-1"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                                                        <button class="add-to-compare" tabindex="-1"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                                                        <button class="quick-view" tabindex="-1"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-                                                    </div>
+
                                                 </div>
                                                 <div class="add-to-cart">
                                                     <button class="add-to-cart-btn" tabindex="-1"><i class="fa fa-shopping-cart"></i>add to cart</button>
@@ -294,11 +341,7 @@
                                                         <i class="fa fa-star"></i>
                                                         <i class="fa fa-star"></i>
                                                     </div>
-                                                    <div class="product-btns">
-                                                        <button class="add-to-wishlist" tabindex="0"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                                                        <button class="add-to-compare" tabindex="0"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                                                        <button class="quick-view" tabindex="0"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-                                                    </div>
+
                                                 </div>
                                                 <div class="add-to-cart">
                                                     <button class="add-to-cart-btn" tabindex="0"><i class="fa fa-shopping-cart"></i>add to cart</button>
@@ -323,11 +366,7 @@
                                                         <i class="fa fa-star"></i>
                                                         <i class="fa fa-star"></i>
                                                     </div>
-                                                    <div class="product-btns">
-                                                        <button class="add-to-wishlist" tabindex="0"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                                                        <button class="add-to-compare" tabindex="0"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                                                        <button class="quick-view" tabindex="0"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-                                                    </div>
+
                                                 </div>
                                                 <div class="add-to-cart">
                                                     <button class="add-to-cart-btn" tabindex="0"><i class="fa fa-shopping-cart"></i>add to cart</button>
@@ -404,7 +443,7 @@
 
                                     <!-- /product -->
                                 </div>
-                               
+
                             </div>
                             <!-- /tab -->
                         </div>

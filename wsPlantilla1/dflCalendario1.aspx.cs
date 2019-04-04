@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 
-public partial class dflCalendario : System.Web.UI.Page
+public partial class _Default : System.Web.UI.Page
 {
     //copia de la clase
     clsClase objDatos = new clsClase();
@@ -54,4 +54,6 @@ public partial class dflCalendario : System.Web.UI.Page
         gvUsuarios.PageIndex = e.NewPageIndex;
         llenarGrid();
     }
+
+
 }
