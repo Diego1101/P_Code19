@@ -46,7 +46,7 @@
                                         string prod = "<div class='col-md-4 col-xs-6'>";
                                         prod += "<div class='product-widget'>";
                                         prod += "<div class='product-img'>";
-                                        prod += "<img src='./img/" + row[7] + "' alt = '' >";
+                                        prod += "<img src='" + row[7] + "' alt = '' >";
                                         prod += "</div>";
                                         prod += "<div class='product-body'>";
                                         prod += "<p class='product-category'>" + row[8] + "</p>";

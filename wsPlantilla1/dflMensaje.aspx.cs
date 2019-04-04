@@ -13,9 +13,10 @@ public partial class _Default : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            Id = int.Parse(Request.QueryString["ID"]);
+            
             try
             {
+                Id = int.Parse(Request.QueryString["ID"]);
                 int id = Id;
                 string[] dat = obj.buscarUsuario(Id, Application["cnn"].ToString()).ElementAt(0);
                 txtNombre.Text = dat[0];
@@ -25,7 +26,7 @@ public partial class _Default : System.Web.UI.Page
             }
             catch (ArgumentNullException ex)
             {
-                Response.Write("<script language ='javascript'>alert('Sin id');</script>");
+                Response.Write("<script language ='javascript'>alert('Sin numero');</script>");
             }
             catch (Exception ex)
             {

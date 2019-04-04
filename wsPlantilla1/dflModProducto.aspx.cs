@@ -40,7 +40,6 @@ public partial class _Default : System.Web.UI.Page
             }
             catch (ArgumentNullException ex)
             {
-                Response.Write("<script language ='javascript'>alert('Sin id');</script>");
                 
             }
             catch (Exception ex)
