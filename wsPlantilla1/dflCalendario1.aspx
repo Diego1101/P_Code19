@@ -7,6 +7,10 @@
             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
             <asp:GridView ID="gvUsuarios" runat="server" AllowPaging="True" CellPadding="3" OnPageIndexChanging="gvUsuarios_PageIndexChanging" OnSelectedIndexChanging="gvUsuarios_SelectedIndexChanging" PageSize="1" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px">
                 <Columns>
+                    <asp:CommandField ButtonType="Image" SelectImageUrl="~/img/whatsapp-logo.png" ShowSelectButton="True">
+                    <ControlStyle Height="25px" Width="25px" />
+                    </asp:CommandField>
+                    <asp:BoundField DataField="ID" HeaderText="ID" />
                     <asp:BoundField DataField="FECHA" HeaderText="Fecha" />
                     <asp:BoundField DataField="NOMBRE" HeaderText="Nombre" />
                     <asp:BoundField DataField="CORREO" HeaderText="Correo" />
