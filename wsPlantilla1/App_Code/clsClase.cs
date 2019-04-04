@@ -117,5 +117,13 @@ public class clsClase
         return ds;
     }
 
+    public DataSet producto(string con)
+    {
+        //con espacio antes de finalizar comillas para que no se junte la clave con el nombre y no de ningun problema
+        da = new SqlDataAdapter("TSP_buscarProductos ' ',"+"0", con);
+        ds = new DataSet();
+        da.Fill(ds, "productos");
+        return ds;
+    }
 
 }
