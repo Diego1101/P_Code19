@@ -43,6 +43,6 @@ public partial class _Default : System.Web.UI.Page
     protected void btnEnviar_Click(object sender, EventArgs e)
     {
         Response.Write("<script language = 'javascript' > javascript: window.open('https://api.whatsapp.com/send?phone=52"+txtTel.Text+"&text=Saludos, "+ txtNombre.Text+" tengo un mensaje para ti: "+ txtMensaje.Text +"', 'popup', 'width=700px, height=700px'); </script>");
-            
+           
     }
 }

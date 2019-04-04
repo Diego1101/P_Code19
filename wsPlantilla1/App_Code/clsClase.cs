@@ -11,9 +11,8 @@ using System.Data.SqlClient;
 public class clsClase
 {
     //Atributos
-    public int Clave, Rol, Sexo;
-    public string Nombre, Usuario;
-
+    public int Clave, Rol, Sexo, Id, Codigo, Tipo, Unidades, Costo;
+    public string Nombre, Usuario, Marca, Desc, Imagen;
 
     SqlConnection cnn;
     SqlCommand cmd;
@@ -123,6 +122,45 @@ public class clsClase
         ds = new DataSet();
         da.Fill(ds, "UsuariosRegistrados");
         return ds;
+    }
+
+    public int modProducto(int id,int codigo, string nombre, string marca, string desc, int unidades, float costo, string imagen, int tipo, string con)
+    {
+        cnn = new SqlConnection(con);
+        cmd = new SqlCommand("TSP_agregarProducto", cnn);
+
+        SqlParameter  nid = cmd.Parameters.Add("@ID", SqlDbType.Int);
+        SqlParameter  ncodigo = cmd.Parameters.Add("@CODIGO", SqlDbType.Int);
+        SqlParameter nnombre = cmd.Parameters.Add("@NOMBRE", SqlDbType.NVarChar, 60);
+        SqlParameter nmarca = cmd.Parameters.Add("@MARCA", SqlDbType.NVarChar, 60);
+        SqlParameter ndesc = cmd.Parameters.Add("@DESC", SqlDbType.NVarChar, 50);
+        SqlParameter nunidades= cmd.Parameters.Add("@UNIDADES", SqlDbType.Int);
+        SqlParameter ncosto = cmd.Parameters.Add("@COSTO", SqlDbType.Float);
+        SqlParameter nimagen= cmd.Parameters.Add("@IMAGEN", SqlDbType.NVarChar, 250);
+        SqlParameter ntipo = cmd.Parameters.Add("@TIPO", SqlDbType.Int);
+        cmd.CommandType = CommandType.StoredProcedure;
+
+        nid.Value = id;
+        ncodigo.Value = codigo;
+        nnombre.Value = nombre;
+        nmarca.Value = marca;
+        ndesc.Value = desc;
+        nunidades.Value = unidades;
+        ncosto.Value = costo;
+        nimagen.Value = imagen;
+        ntipo.Value = tipo;
+
+
+        cnn.Open();
+        dr = cmd.ExecuteReader();
+
+        while (dr.Read())
+        {
+
+            Clave = int.Parse(dr.GetValue(0).ToString());
+        }
+        cnn.Close();
+        return Clave;
     }
 
 

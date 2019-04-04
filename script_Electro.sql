@@ -180,35 +180,54 @@ WHERE USU_ROL != 1
 END
 GO
 
-CREATE PROCEDURE TSP_BuscarUsuario
-(
-@ID INT
-)
-AS
-BEGIN
-SELECT USU_NOMBRE +' '+ USU_APE_PAT +' '+ USU_APA_MAT NOMBRE, USU_TEL_CASA [TELEFONO], USU_FOTO [FOTO]
-FROM USUARIO
-WHERE USU_ID = @ID
-END
-GO
 
-CREATE PROCEDURE TSP_agregarProducto
+CREATE PROCEDURE TSP_agregarProducto --0: AGREGAR 1:MODIFICAR
 (
 @ID INT,
 @CODIGO INT,
 @TIPO INT,
-@NOMBRE NVARCHAR(50),
-@MARCA NVARCHAR)
+@NOMBRE NVARCHAR(60),
+@MARCA NVARCHAR(60),
+@DESC NVARCHAR(250),
+@UNIDADES INT, 
+@COSTO FLOAT,
+@IMAGEN NVARCHAR(250)
 )
 AS
 BEGIN
+	IF(@ID=0)
+	BEGIN
+		IF EXISTS(SELECT * FROM PRODUCTO WHERE PRO_CODIGO = @CODIGO)
+		BEGIN
+			SELECT '0' [CODIGO]
+		END
+		ELSE
+		BEGIN
+			INSERT INTO PRODUCTO VALUES (@CODIGO, @TIPO, @NOMBRE,@MARCA, @DESC, @UNIDADES, @COSTO, @IMAGEN, 1, GETDATE())
+			SELECT PRO_CODIGO [CODIGO] FROM PRODUCTO WHERE PRO_CODIGO=@CODIGO
+		END
+	END
+	ELSE
+	BEGIN
+		IF EXISTS(SELECT * FROM PRODUCTO WHERE PRO_CODIGO = @CODIGO)
+		BEGIN
+			UPDATE PRODUCTO 
+			SET PRO_TIPO=@TIPO, PRO_NOMBRE=@NOMBRE, PRO_MARCA=@MARCA, PRO_DESC=@DESC, PRO_UNIDADES=@UNIDADES, PRO_COSTO=@COSTO, PRO_IMAGEN=@IMAGEN
+			WHERE PRO_CODIGO= @CODIGO
+			SELECT PRO_CODIGO [CODIGO] FROM PRODUCTO WHERE PRO_CODIGO=@CODIGO	
+		END
+		ELSE
+		BEGIN
+			SELECT '0' [CODIGO]
+		END
+	END
 END
 GO
 
 INSERT INTO USUARIO VALUES(1,'', 'DIEGO', 'MENDOZA', 'REYES', 1, 20,'LA CALLE', '5521399556','D@MAIL.COM','DIG','DIG',1,GETDATE())
 GO
 
-INSERT INTO USUARIO VALUES(2,'./img/usu1.jpg', 'GEOVANA', 'GÓMEZ', 'CRUZ', 2, 21,'LA AVENIDA', '5549416690','G@MAIL.COM','GEO','GEO',1,GETDATE())
+INSERT INTO USUARIO VALUES(2,'./img/usu1.jpg', 'GEOVANA', 'GÃ“MEZ', 'CRUZ', 2, 21,'LA AVENIDA', '5549416690','G@MAIL.COM','GEO','GEO',1,GETDATE())
 GO
 
 INSERT INTO USUARIO VALUES(3,'./img/usu2.jpg', 'ADALEYSI', 'LARA', 'FELICIANO', 2, 22,'LA CERRADA', '7721186179','A@MAIL.COM','ADA','ADA',1,GETDATE())
@@ -223,16 +242,17 @@ INSERT INTO TIPO_PRODUCTO (TPR_PRODUCTO) VALUES
 	('Smartphone'),
 	('Tablet')
 
+
 INSERT INTO PRODUCTO (PRO_CODIGO,PRO_TIPO, PRO_NOMBRE, PRO_MARCA, PRO_DESC, PRO_UNIDADES, PRO_COSTO, PRO_IMAGEN, PRO_BAJA, PRO_FECHA_REG) VALUES
-	(101, 1, 'Laptop HP', 'HP','4 GB RAM, 1 TB HDD, Windows 10', 10, 4000, 'product01.png', 1, GETDATE()),
-	(102, 2, 'Headset Logitech', 'Logitech','Microfono, plug 3mm', 15, 700, 'product02.png', 1, GETDATE()),
-	(103, 1, 'Laptop Acer', 'Acer','8 GB RAM, 500 SSD', 6, 7000, 'product03.png', 1, GETDATE()),
-	(104, 5, 'Tablet samsung','Samsung', 'Andriod Kit kat', 20, 3000, 'product04.png', 1, GETDATE()),
-	(105, 2, 'Headset SONY','SONY', 'Stereo, 2 m de cable', 7, 1100, 'product05.png', 1, GETDATE()),
-	(106, 1, 'Laptop Alien','Alien', 'Color negro', 2, 5000, 'product06.png', 1, GETDATE()),
-	(107, 4, 'Samsung S9','Samsung', '32 GB Interno', 19, 8000, 'product07.png', 1, GETDATE()),
-	(108, 1, 'Laptop ASUS','ASUS', 'Windows 10', 4, 4000, 'product08.png', 1, GETDATE()),
-	(109, 3, 'Presio','Rekam' ,'1.6 pulgadas', 2, 300, 'product09.png', 1, GETDATE())
+	(101, 1, 'Laptop HP', 'HP','4 GB RAM, 1 TB HDD, Windows 10', 10, 4000, './img/product01.png', 1, GETDATE()),
+	(102, 2, 'Headset Logitech', 'Logitech','Microfono, plug 3mm', 15, 700, './img/product02.png', 1, GETDATE()),
+	(103, 1, 'Laptop Acer', 'Acer','8 GB RAM, 500 SSD', 6, 7000, './img/product03.png', 1, GETDATE()),
+	(104, 5, 'Tablet samsung','Samsung', 'Andriod Kit kat', 20, 3000, './img/product04.png', 1, GETDATE()),
+	(105, 2, 'Headset SONY','SONY', 'Stereo, 2 m de cable', 7, 1100, './img/product05.png', 1, GETDATE()),
+	(106, 1, 'Laptop Alien','Alien', 'Color negro', 2, 5000, './img/product06.png', 1, GETDATE()),
+	(107, 4, 'Samsung S9','Samsung', '32 GB Interno', 19, 8000, './img/product07.png', 1, GETDATE()),
+	(108, 1, 'Laptop ASUS','ASUS', 'Windows 10', 4, 4000, './img/product08.png', 1, GETDATE()),
+	(109, 3, 'Presio','Rekam' ,'1.6 pulgadas', 2, 300, './img/product09.png', 1, GETDATE())
 
 
 
@@ -250,5 +270,3 @@ GO
 EXEC TSP_ListarUsuario
 GO
 
-EXEC TSP_BuscarUsuario '2'
-GO
