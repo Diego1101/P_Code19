@@ -68,7 +68,7 @@
             </div>
             <div class="col-lg-5">
                 <asp:FileUpload ID="FileUpload1" runat="server" />
-                <asp:Label ID="lblImagen" runat="server" Text="Label" Visible="false"></asp:Label>
+                <asp:Label ID="lblImagen" runat="server" Text="" Visible="false"></asp:Label>
             </div>
         </div>
     </div>
@@ -76,8 +76,8 @@
         <div class=" col-lg-offset-7">
             <br />
             <br />
-            <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" CssClass="primary-btn" />
-            <asp:Button ID="btnGUardar" runat="server" Text="Guardar" CssClass="primary-btn" />
+            <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" CssClass="primary-btn" OnClick="btnCancelar_Click" />
+            <asp:Button ID="btnGUardar" runat="server" Text="Guardar" CssClass="primary-btn" OnClick="btnGUardar_Click" />
 
         </div>
     </div>
