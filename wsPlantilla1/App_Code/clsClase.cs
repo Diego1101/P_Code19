@@ -125,4 +125,39 @@ public class clsClase
         return ds;
     }
 
+
+    public List<String[]> buscarUsuario(int id, string cn)
+    {
+
+        cnn = new SqlConnection(cn);
+        cmd = new SqlCommand("TSP_BuscarUsuario", cnn);
+
+        SqlParameter nId = cmd.Parameters.Add("@ID", SqlDbType.Int);
+
+        cmd.CommandType = CommandType.StoredProcedure;
+
+        nId.Value = id;
+
+
+        cnn.Open();
+        dr = cmd.ExecuteReader();
+
+        List<string[]> dat = new List<string[]>();
+
+        while (dr.Read())
+        {
+            if (dr.GetValue(0).ToString().Equals("0")) break;
+            string[] row = new string[9];
+            row[0] = dr.GetValue(0).ToString();
+            row[1] = dr.GetValue(1).ToString();
+            row[2] = dr.GetValue(2).ToString();
+  
+            dat.Add(row);
+        }
+
+        cnn.Close();
+
+        return dat;
+
+    }
 }
