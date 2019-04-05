@@ -163,7 +163,6 @@ public class clsClase
         return Clave;
     }
 
-
     public List<String[]> buscarUsuario(int id, string cn)
     {
 
@@ -198,4 +197,93 @@ public class clsClase
         return dat;
 
     }
+
+    public string crearVenta(int cveUsus, string cn)
+    {
+        cnn = new SqlConnection(cn);
+        cmd = new SqlCommand("TSP_nuevaVenta", cnn);
+
+        SqlParameter nCve = cmd.Parameters.Add("@CLIENTE", SqlDbType.Int);
+        
+        cmd.CommandType = CommandType.StoredProcedure;
+
+        nCve.Value = cveUsus;
+
+
+        cnn.Open();
+        dr = cmd.ExecuteReader();
+
+        while (dr.Read())
+        {
+            resultadosConsulta = dr.GetValue(0).ToString();
+        }
+        cnn.Close();
+
+        return resultadosConsulta;
+    }
+
+
+    public string agregarCarrito(int venta,int producto, int cantidad, string cn)
+    {
+        cnn = new SqlConnection(cn);
+        cmd = new SqlCommand("TSP_agregarCarrito", cnn);
+
+        SqlParameter nVenta = cmd.Parameters.Add("@VENTA", SqlDbType.Int);
+        SqlParameter nProd = cmd.Parameters.Add("@PRODUCTO", SqlDbType.Int);
+        SqlParameter nCant = cmd.Parameters.Add("@CANTIDAD", SqlDbType.Int);
+
+        cmd.CommandType = CommandType.StoredProcedure;
+
+        nVenta.Value = venta;
+        nProd.Value = producto;
+        nCant.Value = cantidad;
+
+
+        cnn.Open();
+        dr = cmd.ExecuteReader();
+
+        while (dr.Read())
+        {
+            resultadosConsulta = dr.GetValue(0).ToString();
+        }
+        cnn.Close();
+
+        return resultadosConsulta;
+    }
+
+    public List<String[]> mostrarCarrito(int venta, string cn)
+    {
+
+        cnn = new SqlConnection(cn);
+        cmd = new SqlCommand("TSP_mostrarCarrito", cnn);
+
+        SqlParameter nVen = cmd.Parameters.Add("@VENTA", SqlDbType.Int);
+
+        cmd.CommandType = CommandType.StoredProcedure;
+
+        nVen.Value = venta;
+        
+        cnn.Open();
+        dr = cmd.ExecuteReader();
+
+        List<string[]> dat = new List<string[]>();
+
+        while (dr.Read())
+        {
+            if (dr.GetValue(0).ToString().Equals("1")) break;
+            string[] row = new string[3];
+            row[0] = dr.GetValue(0).ToString();
+            row[1] = dr.GetValue(1).ToString();
+            row[2] = dr.GetValue(2).ToString();
+
+            dat.Add(row);
+        }
+
+        cnn.Close();
+
+        return dat;
+
+    }
+
+
 }

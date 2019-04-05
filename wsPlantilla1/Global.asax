@@ -30,6 +30,7 @@
         Session["Usuario"] = "-1";
         Session["Venta"] = "-1";
         Session["Busc"] = "";
+        Session["Carr"] = "0";
 
 
     }
